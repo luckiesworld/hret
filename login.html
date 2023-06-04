@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginstyle.css">
+    <script src="https://kit.fontawesome.com/a3fc4c0d0c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <title>Ssleepy</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-img" >
+            <img src="login.svg" alt="" width="100%">
+        </div>
+        <div class="login-form">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>SITE COMING SOON: ADMIN Login</h1>
+                    </div>
+                   <form>
+                        <div class="input-box">
+                            <input type="text" placeholder="Enter your email" required id="email">
+                        </div>
+                        <div class="input-box">
+                            <input type="password" placeholder="Enter your password" id="password">
+                        </div>
+                        <div class="forgot"><a onclick="showError()" href="#">Forgot your password?</a></div>
+                        <div class="input-box">
+                            <button onclick="showSuccessAlert()" type="submit" id="btn_signin">Enter</button>
+                 
+                        </div>
+                        <div class="divider">or</div>
+                        <div class="medias-socias">
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-google" onclickonclick="showSuccessAlert()" id="btn_signin_google"></i>
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div class="signup-text">
+                            Don't have an account? <a href="./register.html">Create one now</a>
+                        </div>
+                </div>
+        </div>
+    </div>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>-->
+	
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-functions.js"></script>
+
+<script src="login.js"></script>
+<script>
+
+    function showSuccessAlert() {
+        Swal.fire(
+            'Success!',
+        )
+    }
+   function showError() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! We are unable to process your request. Please try again later.'
+        })
+    }
+
+   function showDialogWithPassingParams() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+</script>
+</body>
+</html>
+
+

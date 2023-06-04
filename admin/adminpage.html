@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+
+  <link rel="stylesheet" href="/style.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="title">Ssleepy</a>
+        <ul class="links">
+          <li class="nav-drop-down">
+            <a href="/index.html">Home</a>
+            <div class="dropdown">
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </li>
+                 <li class="nav-drop-down">
+            <a href="#">Ski Butternut</a>
+            <div class="dropdown">
+              <a href="/butternut/vc.html">Vertical Challange</a>
+              <a href="/butternut/feburary.html">Feburary</a>              
+            </div>
+          </li>
+          <li class="nav-drop-down">
+            <a href="#">Teddy</a>
+            <div class="dropdown">
+              <a href="/teddy/fetching.html">Teddy at house</a>
+              <a href="/teddy/snowyteddy.html">Snowy Teddy</a>
+              <a href="/teddy/fetching.html">Fetching</a>
+              <a href="/teddy/videos.html">Videos</a>
+            </div>
+          </li>
+          <li class="nav-drop-down">
+            <a href="#">Holidays</a>
+            <div class="dropdown">
+              <a href="/holidays/christmas.html">Christmas</a>
+              <a href="/holidays/newyears.html">New Years</a>
+            </div>
+        </li>
+            <li class="nav-drop-down">
+            <a href="#">COMING SOON</a>
+            <div class="dropdown">
+              <a href="/pricing/price.html">Pricing</a>
+               <a href="/movies/index.html">otherhome</a>
+              <a href="/faq.html">faq</a>
+              <a href="/registersterresafasf.html">register</a>
+            </div>
+        </li>
+            <li class="nav-drop-down">
+            <a href="/admin/adminpage.html">Staff</a>
+            <div class="dropdown">
+              <a href="/faq.html">FAQ</a>
+               <a href="/contact.html">Contact</a>
+              <a onclick="logout()">SignOut</a>
+            </div>
+        </li>
+          </div>
+        </ul>
+      
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--FIREBASEMAKINGSURELOGGEDIN-->
+  <script type="text/javascript" src="/login/jqumin.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  <script type="text/javascript">
+    var config = {
+    apiKey: "AIzaSyBR2ih9AemhhK6mMxJUddsYwYRXvyxGw_w",
+    authDomain: "eepy-2b1cc.firebaseapp.com",
+    projectId: "eepy-2b1cc",
+    storageBucket: "eepy-2b1cc.appspot.com",
+    messagingSenderId: "488191373030",
+    appId: "1:488191373030:web:3b36d1932c195145ab5527",
+    measurementId: "G-181H23JW32"
+  };
+ firebase.initializeApp(config);
+ const auth = firebase.auth();
+      auth.onAuthStateChanged(function(cek_user) {
+      	if (cek_user) {
+      		var user = firebase.auth().currentUser;
+      		var email= user.email;
+      		var emailVerified = user.emailVerified;
+      		//console.log("verifikasi " + user.emailVerified);
+      		if (!emailVerified) {
+      			console.log("Unverified User");
+      			alert("Check your email");
+      		} else {
+      			console.log("User Verified");
+      		}
+      		if (user){
+      			console.log("User exists " + user.email);
+
+      			document.getElementById("akun").innerHTML = "Current Account : " + user.email;
+      		}else{
+      			console.log("User None");
+      		}
+      	} else {
+      		console.log("not sign in");
+      		alert("Not Signed In");
+      		document.location = "/login.html";
+      	}
+      });
+
+
+
+      function logout(){
+      	firebase.auth().signOut().then(function() {
+      		console.log("sign out");
+      		alert("Successfully Signed Out");
+      		document.location = "/login.html";
+      	}).catch(function(error) {
+      		alert( "Oops  Something went wrong!  error");
+      	});
+      }
+
+</script>
